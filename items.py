@@ -16,7 +16,7 @@ class Item(pygame.sprite.Sprite):
 
 
 
-    def update(self, scroll_camera, player, portion_fx):
+    def update(self, scroll_camera, player, portion_fx, coin_callback=None):
         # reposition based on camera
         self.rect.x += scroll_camera[0]
         self.rect.y += scroll_camera[1]
@@ -25,7 +25,8 @@ class Item(pygame.sprite.Sprite):
         if self.rect.colliderect(player.rect):
             # money collected
             if self.item_type == 0:
-                player.score += 0
+                if coin_callback:
+                    coin_callback(10)  # Add 10 coins
             elif self.item_type == 1:
                 player.health += 20
                 portion_fx.play()

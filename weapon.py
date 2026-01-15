@@ -17,7 +17,7 @@ class Weapon():
         self.last_shot = pygame.time.get_ticks()
 
 
-    def update(self, player):
+    def update(self, player, can_shoot=True):
         shot_cooldown = 100
         bullet = None
         self.rect.center = player.rect.center
@@ -33,8 +33,8 @@ class Weapon():
             self.weapon_angle = math.degrees(math.atan2(x_dist, y_dist))
         self.angle = math.degrees(math.atan2(x_dist, y_dist))
 
-        # get mouseclick
-        if pygame.mouse.get_pressed()[0] and self.fired == False and (pygame.time.get_ticks()) - self.last_shot:
+        # get mouseclick (only if shooting is allowed)
+        if can_shoot and pygame.mouse.get_pressed()[0] and self.fired == False and (pygame.time.get_ticks()) - self.last_shot:
             bullet = Bullet(self.bullet_image, self.rect.centerx + constants.BULLET_OFFSET_X, self.rect.centery + constants.BULLET_OFFSET_Y, self.angle)
             self.fired = True
             self.last_shot = pygame.time.get_ticks()
@@ -64,7 +64,7 @@ class Bullet(pygame.sprite.Sprite):
         self.dx = math.cos(math.radians(self.angle)) * constants.BULLET_SPEED
         self.dy = -(math.sin(math.radians(self.angle)) * constants.BULLET_SPEED)
 
-    def update(self, scroll_camera, obstacle_tiles, enemy_list):
+    def update(self, scroll_camera, obstacle_tiles, enemy_list, damage_bonus=0, power_purple=False):
         self.rect.x += scroll_camera[0] + self.dx
         self.rect.y += scroll_camera[1] + self.dy
 
@@ -85,11 +85,22 @@ class Bullet(pygame.sprite.Sprite):
         # check bullet hit enemy
         for enemy in enemy_list:
             if enemy.rect.colliderect(self.rect) and enemy.alive:
-                damage = constants.SMILE_WEAPON + random.randint(-constants.SMILE_WEAPON_RANDOM, constants.SMILE_WEAPON_RANDOM)
+                base_damage = constants.SMILE_WEAPON + random.randint(-constants.SMILE_WEAPON_RANDOM, constants.SMILE_WEAPON_RANDOM) + damage_bonus
+                
+                if power_purple:
+                    if enemy.is_boss:
+                        # 3x damage to boss
+                        damage = base_damage * 3
+                    else:
+                        # One-shot kill regular enemies
+                        damage = enemy.health + 100
+                else:
+                    damage = base_damage
+                
                 damage_pos = enemy.rect
                 enemy.health -= damage
                 enemy.hit = True
-                self. kill()
+                self.kill()
                 break
         return damage, damage_pos
 

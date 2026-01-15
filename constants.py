@@ -43,9 +43,9 @@ PANEL = (50, 50, 50)
 
 #backgrounds
 
+# Map size (must match CSV)
 ROWS = 200
 COLS = 200
-
 
 SCROLL_EDGE = 150
 
@@ -66,7 +66,21 @@ SMILE_WEAPON_RANDOM = 5
 
 
 
-MAP_X_END = 16*200 - 16*5
-MAP_X_START = 16*20
-MAP_Y_END = 16*200 - 16*5
-MAP_Y_START = 16*20
+# Arena boundaries (inside the actual walls from CSV)
+# Walls: columns 0-2 and 197-199, rows 0-2 and 197-199
+# Playable: columns 3-196, rows 3-196
+# Each tile = 16 pixels
+MAP_X_START = 16 * 3    # 48 pixels - first playable column
+MAP_X_END = 16 * 197    # 3152 pixels - last playable column  
+MAP_Y_START = 16 * 3    # 48 pixels - first playable row
+MAP_Y_END = 16 * 197    # 3152 pixels - last playable row
+
+# Arena center for player spawn
+ARENA_CENTER_X = (MAP_X_START + MAP_X_END) // 2
+ARENA_CENTER_Y = (MAP_Y_START + MAP_Y_END) // 2
+
+# Boss settings
+BOSS_SCALE = 2  # 2x size of normal enemies
+BOSS_HEALTH_MULTIPLIER = 5  # 5x health
+BOSS_SPEED_MULTIPLIER = 1.5  # 1.5x speed
+BOSS_SPAWN_WAVE = 3  # Boss spawns every 3 waves

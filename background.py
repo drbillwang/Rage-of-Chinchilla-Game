@@ -37,7 +37,8 @@ class Background():
                     self.item_list.append(cola)
                     tile_data[0] = tile_list[0]
                 elif tile == 6:
-                    player = Character(image_x, image_y, constants.PLAYER_INITIAL_HEALTH, character_animations, 0, False)
+                    # Player spawns at screen center
+                    player = Character(constants.WINDOW_WIDTH // 2, constants.WINDOW_HEIGHT // 2, constants.PLAYER_INITIAL_HEALTH, character_animations, 0, False)
                     self.player = player
                     tile_data[0] = tile_list[0]
                 elif tile == 4:
