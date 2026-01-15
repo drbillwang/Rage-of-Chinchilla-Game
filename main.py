@@ -1,3 +1,4 @@
-# main.py - Entry point for Pygbag web build
+# main.py
+from game import main
 import asyncio
-exec(open("game.py").read())
+asyncio.run(main())
