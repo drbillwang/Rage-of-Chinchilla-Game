@@ -1,13 +1,56 @@
-# Rage-of-Chinchilla-Game
+# Rage of the Chinchilla
 
-This is my CS50 final project (Dec-2022): A shooting game named The Rage of Chinchilla
+A top-down survival shooter game built with Pygame. Control Smile the Chinchilla and survive endless waves of enemies!
 
-The Game is based on the Pygame module on Python. The player controls Smile the Chinchilla and uses his plasma gun against 2 kinds of enemies - Antonio and Joker. Antonio is a close quarter fighter. Joker is a long ranger shooter. While fighting in the arena, the player can take coca cola to restore health. The game has a scoring system tracking the number of kills.
+## Screenshots
 
-Reference:
-The Chinchilla characters are from SMILE, a popular Wechat emoji in China.
-The weapon is from the game Halo. It is used by the Sangheili species.
-Special thanks to Coding With Russ. His high quality Pygame tutorial videos are great inspirations.
-His Youtube channel:
-https://www.youtube.com/c/CodingWithRuss
+![Start Screen](screenshots/start_screen.png)
 
+![Gameplay](screenshots/gameplay.png)
+
+![Shop System](screenshots/shop.png)
+
+## Features
+
+### v2.0 (Current)
+- **Wave System**: Endless survival mode with progressive difficulty
+- **Boss Enemies**: Larger enemies with unique attacks starting from Wave 3
+- **Power-Up Stars**: Red (invincibility), Yellow (16-directional shooting), Purple (boss killer)
+- **Shop System**: Upgrade weapons, buy health, unlock laser sight
+- **Dash Ability**: Quick dodge with spacebar
+- **Combo System**: Chain kills for bonus rewards
+- **Enhanced UI**: Animated menus, gradient health bar, visual effects
+
+### v1.0 (Original CS50 Project)
+- Basic shooting gameplay
+- Two enemy types: Antonio (melee) and Joker (ranged)
+- Health restoration with cola pickups
+
+## Controls
+
+| Key | Action |
+|-----|--------|
+| WASD | Move |
+| Mouse | Aim & Shoot |
+| Space | Dash |
+| ESC | Pause |
+| 1-4 | Shop purchases |
+
+## How to Play
+
+1. Install Python and Pygame: `pip install pygame`
+2. Run: `python game.py`
+3. Survive as many waves as possible!
+
+## Credits
+
+- **Characters**: SMILE emoji from WeChat
+- **Weapon**: Inspired by Halo's Sangheili plasma rifle
+- **Tutorial Reference**: [Coding With Russ](https://www.youtube.com/c/CodingWithRuss)
+
+## Version History
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+
+---
+*Originally created as CS50 Final Project (December 2022)*
