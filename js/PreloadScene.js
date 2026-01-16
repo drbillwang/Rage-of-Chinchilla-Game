@@ -30,8 +30,8 @@ class PreloadScene extends Phaser.Scene {
             loadingText.destroy();
         });
         
-        // Load images from parent directory
-        const basePath = '../images/';
+        // Load images from images directory
+        const basePath = 'images/';
         
         // Player sprites
         for (let i = 0; i < 4; i++) {
@@ -84,14 +84,14 @@ class PreloadScene extends Phaser.Scene {
         this.load.image('life', `${basePath}life/life.png`);
         this.load.image('life_empty', `${basePath}life/life_empty.png`);
         
-        // Load sounds from parent directory
-        this.load.audio('music', '../sound/music.mp3');
-        this.load.audio('shot', '../sound/shooting.mp3');
-        this.load.audio('hit', '../sound/hit.mp3');
-        this.load.audio('potion', '../sound/portion.mp3');
+        // Load sounds from sound directory
+        this.load.audio('music', 'sound/music.mp3');
+        this.load.audio('shot', 'sound/shooting.mp3');
+        this.load.audio('hit', 'sound/hit.mp3');
+        this.load.audio('potion', 'sound/portion.mp3');
         
         // Load map CSV
-        this.load.text('map1', '../maps/map1_data.csv');
+        this.load.text('map1', 'maps/map1_data.csv');
     }
 
     create() {
