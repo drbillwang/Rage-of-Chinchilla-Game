@@ -1,3 +1,4 @@
+# Python files (moved to pygame-version branch)
 __pycache__/
 *.pyc
 build/
@@ -11,5 +12,3 @@ Screenshot*.png
 
 # Development files
 GITHUB_DIFF.md
-web/
-start_server.bat

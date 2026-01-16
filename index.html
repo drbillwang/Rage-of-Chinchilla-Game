@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rage of the Chinchilla</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'MontserratAlternates-Bold';
+            src: url('fonts/MontserratAlternates-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #game-container {
+            border: 3px solid #4a4a6a;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(100, 100, 200, 0.3);
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #game-container canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <script src="js/config.js"></script>
+    <!-- Game modules -->
+    <script src="js/Player.js"></script>
+    <script src="js/Enemy.js"></script>
+    <script src="js/Weapon.js"></script>
+    <script src="js/Bullet.js"></script>
+    <script src="js/Item.js"></script>
+    <script src="js/Star.js"></script>
+    <script src="js/Particle.js"></script>
+    <script src="js/Background.js"></script>
+    <script src="js/HUD.js"></script>
+    <!-- Scenes -->
+    <script src="js/PreloadScene.js"></script>
+    <script src="js/MenuScene.js"></script>
+    <script src="js/GameScene.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
