@@ -1,3 +1,15 @@
 __pycache__/
 *.pyc
 build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Screenshots in root (moved to screenshots/)
+Screenshot*.png
+
+# Development files
+GITHUB_DIFF.md
+web/
+start_server.bat
