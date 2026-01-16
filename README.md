@@ -41,7 +41,7 @@ A top-down survival shooter game built with Pygame. Control Smile the Chinchilla
 1. Install Python 3.x (if not already installed)
 2. Install dependencies: `pip install -r requirements.txt`
    - Or manually: `pip install pygame`
-3. Run the game: `python game.py` or `python main.py`
+3. Run the game: `python game.py`
 4. Survive as many waves as possible!
 
 ## Credits
