@@ -1482,6 +1482,7 @@ async def main():
                             player_coins = 0
                             weapon_level = 1
                             weapon_damage_bonus = 0
+                            has_laser_sight = False  # Reset laser sight on restart
                             # Reset power-ups
                             power_invincible = False
                             power_multishot = False
