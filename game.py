@@ -602,10 +602,17 @@ resume_button = FancyButton.resume_button(constants.WINDOW_WIDTH // 2 - 110, con
 
 
 # use a while loop as the main game loop for the game keep running
-def is_valid_spawn_position(x, y, obstacle_tiles):
+def is_valid_spawn_position(x, y, obstacle_tiles, is_boss=False):
     """Check if position is NOT colliding with any obstacle"""
     # Create a rect for the spawn position (enemy size)
-    test_rect = pygame.Rect(x - 48, y - 48, 96, 96)
+    # Boss is 2x size, so use larger test rect for boss
+    if is_boss:
+        size = constants.CHARACTER_SIZE_X * constants.BOSS_SCALE  # 96 * 2 = 192
+        test_rect = pygame.Rect(x - size // 2, y - size // 2, size, size)
+    else:
+        size = constants.CHARACTER_SIZE_X  # 96
+        test_rect = pygame.Rect(x - size // 2, y - size // 2, size, size)
+    
     for obstacle in obstacle_tiles:
         if obstacle[1].colliderect(test_rect):
             return False
@@ -636,7 +643,8 @@ def spawn_enemy(wave, player_pos, is_boss=False, obstacle_tiles=None):
         y = max(margin + 100, min(y, constants.WINDOW_HEIGHT - margin))
         
         # Check if position is valid (not in wall)
-        if obstacle_tiles is None or is_valid_spawn_position(x, y, obstacle_tiles):
+        # Pass is_boss parameter to use correct size for collision test
+        if obstacle_tiles is None or is_valid_spawn_position(x, y, obstacle_tiles, is_boss):
             break
     
     # Fallback: spawn at screen center if all attempts fail
